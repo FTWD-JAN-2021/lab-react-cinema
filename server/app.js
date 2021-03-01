@@ -8,8 +8,10 @@ const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
 console.log('im in the backend')
+
+const MONGODB_URI = "mongodb+srv://victor2:victorvictor@cluster0.hzjcy.mongodb.net/myRecipe?retryWrites=true&w=majority"
 mongoose
-  .connect('mongodb://localhost/movies-dev', { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODB_URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
