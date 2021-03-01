@@ -14,9 +14,15 @@ router.get('/movies', async (req, res) => {
   res.json({ movies })
 })
 
+router.post('/movie/create', async (req, res) => {
+  const movie = await Movie.create(req.body)
+  res.json({ movie })
+})
+
 router.get('/movie/:id', async (req, res) => {
   const movie = await Movie.findById(req.params.id)
   res.json({ movie })
 })
+
 
 module.exports = router;
