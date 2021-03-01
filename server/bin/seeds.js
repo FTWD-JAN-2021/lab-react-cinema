@@ -83,3 +83,22 @@ const movies = [
     showtimes: ['13:00', '15:30', '18:00', '20:10', '22:40']
   }
 ];
+
+const MONGODB_URI = "mongodb+srv://victor2:victorvictor@cluster0.hzjcy.mongodb.net/myRecipe?retryWrites=true&w=majority"
+
+// Connection to the database "recipe-app"
+mongoose
+  .connect(MONGODB_URI, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(self => {
+    console.log(`Connected to the database: "${self.connection.name}"`);
+    // Before adding any documents to the database, let's delete all previous entries
+    return self.connection.dropDatabase();
+  })
+  .then(async() => {
+    // Run your code here, after you have insured that the connection was made
+    await Movie.insertMany(movies).then(console.log)
+  })
