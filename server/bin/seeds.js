@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const Movie = require('../models/Movie.model.js')
+
 const movies = [
   {
     title: 'A Wrinkle in Time',
