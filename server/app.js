@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
-
+console.log('im in the backend')
 mongoose
   .connect('mongodb://localhost/movies-dev', { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
